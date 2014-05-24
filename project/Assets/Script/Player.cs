@@ -7,7 +7,10 @@ public class Player : MonoBehaviour {
 	public AudioClip audioGetTreasure;
 	public AudioClip audioMiss;
 	AudioSource audioSource;
-	public int point = 10;
+
+
+	public static int GET_POINT = 10;
+	public int point = 0;
 
 	public static float STAMINA_MAX = 100.0f;
 	public float stamina = 0.0f;
@@ -22,7 +25,7 @@ public class Player : MonoBehaviour {
 		stamina = STAMINA_MAX;
 		stamina_delta = 2.5f;
 		stamina_up_y = -3.135001f;
-		point = 10;
+		point = GET_POINT;
 	}
 
 	// Update is called once per frame
