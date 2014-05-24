@@ -1,6 +1,6 @@
-Library
-Temp
-*.pidb
-*.unityproj
-*.sln
-*.userprefs
+project/Library
+project/Temp
+project/*.pidb
+project/*.unityproj
+project/*.sln
+project/*.userprefs
