@@ -27,7 +27,7 @@ public class Score : MonoBehaviour {
 			Debug.Log ("clear");
 		}
 		
-		// スコア・ハイスコアを表示する
+		// スコアを表示する
 		scoreGUIText.text = "Score : " + score.ToString ();
 		targetScoreGUIText.text = "TargetScore : " + targetScore.ToString ();
 	}
