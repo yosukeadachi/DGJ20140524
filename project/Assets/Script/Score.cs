@@ -15,9 +15,6 @@ public class Score : MonoBehaviour {
 	//   target
 	private int targetScore;
 	
-	// PlayerPrefsで保存するためのキー
-	private string highScoreKey = "highScore";
-	
 	void Start ()
 	{
 		Initialize ();
