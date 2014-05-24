@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Score : MonoBehaviour {
+	public static string SCORE_PLAYER_PREF_KEY = "SCORE_PLAYER";
+	public static string SCORE_TARGET_PREF_KEY = "SCORE_TARGET";
 
 	// スコアを表示するGUIText
 	public GUIText scoreGUIText;
@@ -22,9 +24,11 @@ public class Score : MonoBehaviour {
 	
 	void Update ()
 	{
-		// スコアがtargetスコアより大きければ
-		if (targetScore < score) {
+		// end judge
+		if (targetScore <= score) {
+			setPrefs();
 			Debug.Log ("clear");
+			Application.LoadLevel("result");
 		}
 		
 		// スコアを表示する
@@ -39,7 +43,8 @@ public class Score : MonoBehaviour {
 		score = 0;
 		
 		// 
-		targetScore = 100;
+		targetScore = 20;
+		setPrefs();
 	}
 	
 	// ポイントの追加
@@ -47,7 +52,13 @@ public class Score : MonoBehaviour {
 	{
 		score = score + point;
 	}
-	
+
+
+	public void setPrefs()
+	{
+		PlayerPrefs.SetInt(SCORE_PLAYER_PREF_KEY, score);
+		PlayerPrefs.SetInt(SCORE_TARGET_PREF_KEY, targetScore);
+	}
 }
 
 
