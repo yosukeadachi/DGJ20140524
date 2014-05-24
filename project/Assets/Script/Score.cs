@@ -24,8 +24,8 @@ public class Score : MonoBehaviour {
 	
 	void Update ()
 	{
-		// スコアがtargetスコアより大きければ
-		if (targetScore < score) {
+		// end judge
+		if (targetScore <= score) {
 			setPrefs();
 			Debug.Log ("clear");
 			Application.LoadLevel("result");
@@ -43,7 +43,7 @@ public class Score : MonoBehaviour {
 		score = 0;
 		
 		// 
-		targetScore = 10;
+		targetScore = 20;
 		setPrefs();
 	}
 	

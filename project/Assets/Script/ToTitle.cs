@@ -20,7 +20,7 @@ public class ToTitle : MonoBehaviour {
 			if(colition2d) {
 				RaycastHit2D hitObject = Physics2D.Raycast(tapPoint, -Vector2.up);
 				if(hitObject){
-//					Application.LoadLevel("title");
+					Application.LoadLevel("title");
 					Debug.Log("hit object is " + hitObject.collider.gameObject.name);
 				}
 			}

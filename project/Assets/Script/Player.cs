@@ -3,8 +3,9 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	public AudioClip audioClip1;
-	public AudioClip audioClip2;
+	public AudioClip audioJump;
+	public AudioClip audioGetTreasure;
+	public AudioClip audioMiss;
 	AudioSource audioSource;
 	public int point = 10;
 
@@ -24,7 +25,7 @@ public class Player : MonoBehaviour {
 			this.gameObject.transform.rigidbody2D.AddForce(new Vector3(x, y, z));
 		}
 		if (Input.GetMouseButtonDown(0)) {
-			audioSource.PlayOneShot (audioClip1);
+			audioSource.PlayOneShot (audioJump);
 		}
 	}
 
@@ -34,9 +35,15 @@ public class Player : MonoBehaviour {
 		if(go.tag == "treasure") {
 			// スコアコンポーネントを取得してポイントを追加
 			FindObjectOfType<Score>().AddPoint(point);
-
-			audioSource.PlayOneShot (audioClip2);
+			audioSource.PlayOneShot (audioGetTreasure);
 			Destroy(collision2d.gameObject);
+		}
+		else if(go.tag == "enemy") {
+			//
+			audioSource.PlayOneShot (audioMiss);
+			Destroy(collision2d.gameObject);
+			Application.LoadLevel("result");
+			FindObjectOfType<Score>().setPrefs();
 		}
 	}
 	
