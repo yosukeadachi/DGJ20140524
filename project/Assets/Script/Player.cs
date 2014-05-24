@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 	public AudioClip audioClip1;
 	public AudioClip audioClip2;
 	AudioSource audioSource;
+	public int point = 10;
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +32,9 @@ public class Player : MonoBehaviour {
 	{
 		GameObject go = collision2d.gameObject;
 		if(go.tag == "treasure") {
+			// スコアコンポーネントを取得してポイントを追加
+			FindObjectOfType<Score>().AddPoint(point);
+
 			audioSource.PlayOneShot (audioClip2);
 			Destroy(collision2d.gameObject);
 		}
